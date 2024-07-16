@@ -1,11 +1,9 @@
-alex@ubuntu:~/c/printf$ cat main.c 
 #include <limits.h>
 #include <stdio.h>
 #include "main.h"
 
 /**
- * main - Entry point
- *
+ * main - Entry point for testing _printf
  * Return: Always 0
  */
 int main(void)
@@ -43,3 +41,4 @@ int main(void)
     printf("Unknown:[%r]\n");
     return (0);
 }
+
