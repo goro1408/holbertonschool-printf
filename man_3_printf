@@ -14,94 +14,63 @@ printf, _printf \- formatted output conversion
 .SH DESCRIPTION
 The
 .B printf
-function produces output according to a format as described below. The
-.B format
-string is composed of zero or more directives: ordinary characters (except %) which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments. Each conversion specification is introduced by the % character.
-
-The
+function formats and prints data. The
 .B _printf
-function is a custom implementation of the standard C library function printf. It performs similarly, producing output according to a format string. This function was implemented as part of the Holberton School curriculum to understand the intricacies of the printf function.
+function is a custom implementation of printf, created for the Holberton School curriculum.
 
 .SH FORMAT SPECIFIERS
-The following format specifiers are supported by
-.B _printf:
+.B _printf
+supports:
 .TP
 .B %c
-Character. Fetches the next argument as a character and prints it.
+Character.
 .TP
 .B %s
-String of characters. Fetches the next argument as a pointer to a string and prints the string.
+String.
 .TP
 .B %d, %i
-Signed decimal integer. Fetches the next argument as an integer and prints it as a signed decimal number.
+Signed decimal integer.
 .TP
 .B %u
-Unsigned decimal integer. Fetches the next argument as an unsigned integer and prints it as a decimal number.
+Unsigned decimal integer.
 .TP
 .B %o
-Unsigned octal. Fetches the next argument as an unsigned integer and prints it as an octal number.
+Unsigned octal.
 .TP
 .B %x, %X
-Unsigned hexadecimal integer. Fetches the next argument as an unsigned integer and prints it as a hexadecimal number (lowercase and uppercase).
+Unsigned hexadecimal.
 .TP
 .B %p
-Pointer address. Fetches the next argument as a pointer and prints it as a memory address.
+Pointer address.
 .TP
 .B %%
-Percent sign. Prints a literal '%' character.
+Percent sign.
 
 .SH FLAGS
-The following flags are supported by
-.B _printf:
 .TP
 .B \-
-Left-justify the output within the given field width.
+Left-justify.
 .TP
 .B +
-Precede the result with a plus or minus sign (+ or -) even for positive numbers.
+Sign.
 .TP
 .B (space)
-If no sign is going to be written, a space is inserted before the value.
+Space.
 .TP
 .B #
-Used with o, x, or X specifiers the value is preceded with 0, 0x, or 0X respectively for values different from zero.
+Alternate form.
 .TP
 .B 0
-Zero padding. Left-pads the number with zeros (0) instead of spaces when padding is specified (see width sub-specifier).
+Zero-padding.
 
-.SH WIDTH
-The field width specifier. An optional decimal digit string (with nonzero first digit) specifying a minimum field width. If the converted value has fewer characters than the provided width, the output is padded with spaces (or zeros if the zero padding flag is specified).
-
-.SH PRECISION
-The precision specifier. An optional decimal digit string preceded by a period (.) specifying the maximum number of characters to be printed for strings, or the number of digits to be printed after the decimal point for floating-point numbers. If the precision is specified as an asterisk (*), an int argument from the argument list supplies the precision.
-
-.SH LENGTH MODIFIERS
-The following length modifiers are supported by
-.B _printf:
-.TP
-.B l
-Specifies that the argument is a long or wide character.
-.TP
-.B h
-Specifies that the argument is a short or narrow character.
+.SH WIDTH & PRECISION
+Width and precision specify field width and number of digits.
 
 .SH RETURN VALUE
-Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). If an output error is encountered, a negative value is returned.
+Returns the number of characters printed, or a negative value on error.
 
 .SH ERRORS
-.B printf
-and
-.B _printf
-can encounter the following errors:
-.TP
-.B EINVAL
-Invalid format string.
-.TP
-.B EFAULT
-Invalid address for output.
-.TP
-.B ENOMEM
-Insufficient memory to allocate buffer for output.
+Possible errors include invalid format strings or insufficient memory.
 
 .SH EXAMPLES
 .nf
@@ -109,23 +78,14 @@ Insufficient memory to allocate buffer for output.
 #include "main.h"
 
 int main(void) {
-    printf("Standard printf: %s\n", "Hello, World!");
-    _printf("Custom _printf: %s\n", "Hello, Holberton!");
-    _printf("Character: %c, Integer: %d, Unsigned: %u, Hex: %x\n", 'A', 10, 10, 255);
-    _printf("Left-justified: %-10s!\n", "Hi");
-    _printf("Padded number: %010d\n", 123);
-    _printf("Pointer address: %p\n", (void *)main);
+    _printf("String: %s, Char: %c\\n", "Hello", 'A');
     return (0);
 }
 .fi
 
 .SH SEE ALSO
-.BR sprintf (3),
-.BR snprintf (3),
-.BR vprintf (3),
-.BR asprintf (3),
-.BR dprintf (3)
+.BR sprintf (3), snprintf (3)
 
 .SH AUTHOR
-Written by Orlando Del Valle Sanchez as part of the Holberton School curriculum.
+Written by Orlando Del Valle Sanchez for Holberton School.
 
