@@ -64,7 +64,7 @@ Alternate form.
 Zero-padding.
 
 .SH WIDTH & PRECISION
-Width and precision specify field width and number of digits.
+Width and precision specify the field width and number of digits.
 
 .SH RETURN VALUE
 Returns the number of characters printed, or a negative value on error.
